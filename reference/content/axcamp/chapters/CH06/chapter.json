@@ -1,0 +1,38 @@
+{
+  "chapterId": "ch06",
+  "chapterNum": "CH 06",
+  "title": "Vibe Coding",
+  "time": "13:55",
+  "clips": [
+    {
+      "route": "#ch06-clip01",
+      "title": "바이브 코딩이란",
+      "type": "개념",
+      "folder": "chapters/CH06/ch06-clip01",
+      "linkCount": 2,
+      "imageCount": 1,
+      "sectionCount": 3,
+      "promptCount": 0
+    },
+    {
+      "route": "#ch06-clip02",
+      "title": "바이브 코딩으로 웹앱 제작하기",
+      "type": "실습",
+      "folder": "chapters/CH06/ch06-clip02",
+      "linkCount": 3,
+      "imageCount": 4,
+      "sectionCount": 6,
+      "promptCount": 17
+    },
+    {
+      "route": "#ch06-clip03",
+      "title": "실습 워크숍: 경쟁사 리서치 대시보드",
+      "type": "실습",
+      "folder": "chapters/CH06/ch06-clip03",
+      "linkCount": 9,
+      "imageCount": 0,
+      "sectionCount": 5,
+      "promptCount": 5
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+~10분
+CH 07
+개념
+
+에이전틱 AI 도구 소개
+
+현재 주요 에이전틱 AI 도구 4종의 특징을 비교하고, 오늘 시연에서 사용할 도구를 소개합니다.
+
+4가지 주요 에이전틱 AI 도구
+
+2025~2026년 현재, 주요 AI 기업들이 경쟁적으로 에이전틱 AI 도구를 출시하고 있습니다. 핵심 4종을 비교합니다.
+
+도구	개발사	핵심 특징	AI 모델	적합한 사용자
+
+Antigravity
+Google
+Agent-First IDE, 3-Surface(Editor+Terminal+Browser), Manager View로 멀티에이전트 오케스트레이션
+Gemini 3.1 Pro
+프론트엔드/풀스택 개발, 에이전트 워크플로우
+
+Claude Code
+Anthropic
+CLI 기반, 코드베이스 전체 컨텍스트, MCP 통합, 프로젝트 단위 자율 작업
+Claude Opus 4
+대규모 코드 리팩토링, 복잡한 코드 분석
+
+Codex
+OpenAI
+클라우드 샌드박스, 비동기 병렬 작업, GitHub 통합
+GPT-4.1 / o3
+CI/CD 연동, 이슈 기반 자동화
+
+Gemini CLI
+Google
+터미널 네이티브, 100만 토큰 컨텍스트, MCP 지원, Google 생태계 연동
+Gemini 3.1 Pro
+터미널 중심 작업, Google Cloud 연동
+
+MCP (Model Context Protocol)
+
+위 도구들이 공통적으로 지원하는 핵심 표준이 있습니다. MCP는 AI 도구들이 외부 데이터와 서비스에 표준화된 방식으로 연결되는 프로토콜입니다.
+
+AI 도구
+
+Antigravity, Claude Code, Cline 등
+
+←
+
+MCP
+
+표준 연결 프로토콜
+
+→
+
+외부 서비스
+
+Slack, DB, 파일, 브라우저
+
+USB 포트가 어떤 기기든 연결할 수 있듯, MCP는 어떤 AI 도구든 외부 시스템과 연결할 수 있게 합니다. 2024년 11월 출시 후 6개월 만에 다운로드 80배 성장을 기록했습니다.
+
+오늘 시연에서 사용할 도구 — Hi-D Code (Cline)
+
+중 오늘 시연에서는 Hi-D Code (Cline) 를 사용합니다.
+
+선택 이유
+
+- Manager View에서 에이전트 진행 상황을 실시간 확인 가능
+
+- 파일 생성(HTML, PPT) 결과를 즉시 미리보기 가능
+
+- 에이전트 루프의 Plan-Execute-Check 과정이 화면에 표시됨
+
+핵심 기능
+
+- 3-Surface: Editor + Terminal + Browser 동시 조작
+
+- Manager View: 다중 에이전트 실시간 현황판
+
+- 스킬: 워크플로우 저장 및 재사용
+
+- Hi-D Code (Qwen-Coder-3.5): 최신 AI 모델 탑재
+
+핵심 메시지
+
+"도구가 달라도 원리는 같습니다."
+
+Antigravity, Claude Code, Codex, Cline — 도구의 인터페이스는 다르지만, 에이전틱 AI의 핵심 원리는 동일합니다: 목표 설정, 컨텍스트 제공, 결과 검증. 오늘 이 원리를 체험하면, 어떤 도구를 사용하든 적용할 수 있습니다.

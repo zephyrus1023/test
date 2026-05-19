@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "accountId": "root",
+      "letsId": "root",
+      "password": "root",
+      "teamName": "ADMIN",
+      "displayName": "Root Admin",
+      "isAdmin": true,
+      "createdAt": "2026-05-18T12:25:54.305Z",
+      "lastLoginAt": "2026-05-18T12:25:54.305Z",
+      "progress": {
+        "completedClipKeys": []
+      },
+      "axTasks": {},
+      "notes": {},
+      "sessionToken": "",
+      "courseCode": "AXCAMP",
+      "courseSlug": "axcamp",
+      "builder": {
+        "activeProjectId": "",
+        "projects": []
+      }
+    }
+  ]
+}

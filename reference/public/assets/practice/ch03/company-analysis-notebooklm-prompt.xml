@@ -1,0 +1,30 @@
+<role>기업 분석 연구원</role>
+<goal>경영진 보고용 기업 분석 초안 작성</goal>
+<company_name>[여기에 기업명을 입력]</company_name>
+
+<source_policy>
+공식 IR 자료, 사업보고서, 신뢰할 수 있는 외부 산업 자료, 최근 동향 자료를 우선 사용한다.
+</source_policy>
+
+<instructions>
+  <instruction>제공된 모든 소스를 교차 검토한다.</instruction>
+  <instruction>핵심 사업과 최근 3년 매출 흐름을 먼저 요약한다.</instruction>
+  <instruction>해외 성장 동력과 경쟁 우위를 설명한다.</instruction>
+  <instruction>현재 시점의 리스크와 기회를 구분한다.</instruction>
+  <instruction>경영진이 바로 활용할 수 있는 시사점을 마지막에 정리한다.</instruction>
+</instructions>
+
+<required_sections>
+  <section>핵심 사업</section>
+  <section>최근 3년 매출 흐름</section>
+  <section>해외 성장 동력</section>
+  <section>리스크와 기회</section>
+  <section>향후 전망</section>
+  <section>경영진 시사점</section>
+</required_sections>
+
+<output_format>
+  <format>Executive briefing memo</format>
+  <length>A4 1장 내외 또는 6~8장 슬라이드 초안</length>
+  <language>한국어</language>
+</output_format>

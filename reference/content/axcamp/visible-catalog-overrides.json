@@ -1,0 +1,78 @@
+{
+  "chapters": {
+    "ch02": {
+      "title": "Gemini & ChatGPT",
+      "time": "09:30"
+    },
+    "ch00": {
+      "title": "과정 안내",
+      "time": "08:30"
+    },
+    "ch01": {
+      "title": "AI 핵심 개념",
+      "time": "08:50"
+    },
+    "ch04": {
+      "title": "Google AI Studio",
+      "time": "14:10"
+    },
+    "ch05": {
+      "title": "Hi-D Code",
+      "time": "16:10"
+    },
+    "ch07": {
+      "title": "참고자료 라이브러리",
+      "time": ""
+    }
+  },
+  "clips": {
+    "ch02-clip01": {
+      "title": "Gemini 소개 및 접속 방법",
+      "type": "플랫폼"
+    },
+    "ch02-clip02": {
+      "title": "프롬프팅 기초",
+      "type": "실습"
+    },
+    "ch02-clip03": {
+      "title": "비지니스 프롬프팅: AI 회의록",
+      "type": "실습"
+    },
+    "ch02-clip04": {
+      "title": "Gems 소개: AI 비서 만들기",
+      "type": "실습"
+    },
+    "ch02-clip05": {
+      "title": "ChatGPT 및 GPTs 소개",
+      "type": "플랫폼"
+    },
+    "ch00-clip01": {
+      "title": "오늘의 시간표",
+      "type": "개요"
+    },
+    "ch00-clip02": {
+      "title": "자사 생성형 AI 서비스 현황",
+      "type": "개요"
+    },
+    "ch01-clip01": {
+      "title": "AI 트렌드",
+      "type": "참고"
+    },
+    "ch01-clip02": {
+      "title": "Assistant에서 Agentic AI로",
+      "type": "개념"
+    },
+    "ch04-clip01": {
+      "title": "Google AI Studio API 키 발급",
+      "type": "설정"
+    },
+    "ch05-clip01": {
+      "title": "Hi-D Code 소개 및 시연",
+      "type": "개요"
+    },
+    "ch07-clip01": {
+      "title": "에이전틱 AI란",
+      "type": "개념"
+    }
+  }
+}

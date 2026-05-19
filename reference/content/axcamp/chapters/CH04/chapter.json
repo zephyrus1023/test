@@ -1,0 +1,38 @@
+{
+  "chapterId": "ch04",
+  "chapterNum": "CH 04",
+  "title": "NotebookLM",
+  "time": "13:00",
+  "clips": [
+    {
+      "route": "#ch04-clip01",
+      "title": "NotebookLM 소개 및 문서 기반 AI 연구 도우미",
+      "type": "플랫폼",
+      "folder": "chapters/CH04/ch04-clip01",
+      "linkCount": 3,
+      "imageCount": 1,
+      "sectionCount": 4,
+      "promptCount": 0
+    },
+    {
+      "route": "#ch04-clip02",
+      "title": "문서 기반 AI 리서치: CIQO와 LG 스타일 브리핑",
+      "type": "실습",
+      "folder": "chapters/CH04/ch04-clip02",
+      "linkCount": 5,
+      "imageCount": 1,
+      "sectionCount": 7,
+      "promptCount": 9
+    },
+    {
+      "route": "#ch04-clip03",
+      "title": "기업 분석 코스: 열린 주제로 해보는 NotebookLM 분석",
+      "type": "실습",
+      "folder": "chapters/CH04/ch04-clip03",
+      "linkCount": 4,
+      "imageCount": 0,
+      "sectionCount": 4,
+      "promptCount": 4
+    }
+  ]
+}

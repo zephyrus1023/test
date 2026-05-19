@@ -1,0 +1,957 @@
+{
+  "startedAt": "2026-02-28T01:53:00.023Z",
+  "baseUrl": "https://lg.cmdspace.work/axcamp",
+  "login": {
+    "name": "테스트20",
+    "email": "test20@lgacademy.com"
+  },
+  "chapters": [
+    {
+      "chapterId": "ch00",
+      "chapterNum": "CH 00",
+      "title": "과정 안내",
+      "time": "08:30",
+      "clips": [
+        {
+          "route": "#ch00-clip01",
+          "title": "오늘의 시간표",
+          "type": "개요",
+          "folder": "chapters/CH00/ch00-clip01",
+          "linkCount": 10,
+          "imageCount": 0,
+          "sectionCount": 4,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch00-clip02",
+          "title": "자사 생성형 AI 서비스 현황",
+          "type": "개요",
+          "folder": "chapters/CH00/ch00-clip02",
+          "linkCount": 15,
+          "imageCount": 0,
+          "sectionCount": 1,
+          "promptCount": 0
+        }
+      ]
+    },
+    {
+      "chapterId": "ch01",
+      "chapterNum": "CH 01",
+      "title": "AI 핵심 개념",
+      "time": "08:50",
+      "clips": [
+        {
+          "route": "#ch01-clip01",
+          "title": "AI 트렌드",
+          "type": "참고",
+          "folder": "chapters/CH01/ch01-clip01",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 2,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch01-clip02",
+          "title": "Assistant에서 Agentic AI로",
+          "type": "개념",
+          "folder": "chapters/CH01/ch01-clip02",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 4,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch01-clip03",
+          "title": "기술 활용 로드맵",
+          "type": "개념",
+          "folder": "chapters/CH01/ch01-clip03",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 0,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch01-clip04",
+          "title": "개념 다지기",
+          "type": "참고",
+          "folder": "chapters/CH01/ch01-clip04",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 1,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch01-clip05",
+          "title": "비지니스 프롬프팅: AI 회의록",
+          "type": "참고",
+          "folder": "chapters/CH01/ch01-clip05",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 3,
+          "promptCount": 0
+        }
+      ]
+    },
+    {
+      "chapterId": "ch02",
+      "chapterNum": "CH 02",
+      "title": "EXAONE",
+      "time": "10:35",
+      "clips": [
+        {
+          "route": "#ch02-clip01",
+          "title": "EXAONEEXAONELG AI Research가 만든 우리 LG의 자체 AI 모델이에요. 사내 서버에 설치할 수 있어서 기밀 데이터도 안전하게 처리할 수 있는 것이 큰 장점입니다. 소개",
+          "type": "플랫폼",
+          "folder": "chapters/CH02/ch02-clip01",
+          "linkCount": 3,
+          "imageCount": 1,
+          "sectionCount": 2,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch02-clip02",
+          "title": "EXAONEEXAONELG AI Research가 만든 우리 LG의 자체 AI 모델이에요. 사내 서버에 설치할 수 있어서 기밀 데이터도 안전하게 처리할 수 있는 것이 큰 장점입니다. 실습",
+          "type": "실습",
+          "folder": "chapters/CH02/ch02-clip02",
+          "linkCount": 4,
+          "imageCount": 0,
+          "sectionCount": 3,
+          "promptCount": 9
+        },
+        {
+          "route": "#ch02-clip03",
+          "title": "AI 모델 비교",
+          "type": "참고",
+          "folder": "chapters/CH02/ch02-clip03",
+          "linkCount": 2,
+          "imageCount": 4,
+          "sectionCount": 1,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch02-clip04",
+          "title": "실습 시트",
+          "type": "실습",
+          "folder": "chapters/CH02/ch02-clip04",
+          "linkCount": 3,
+          "imageCount": 0,
+          "sectionCount": 3,
+          "promptCount": 0
+        }
+      ]
+    },
+    {
+      "chapterId": "ch03",
+      "chapterNum": "CH 03",
+      "title": "Gemini & ChatGPT",
+      "time": "09:30",
+      "clips": [
+        {
+          "route": "#ch03-clip01",
+          "title": "Gemini 소개 및 접속 방법",
+          "type": "플랫폼",
+          "folder": "chapters/CH03/ch03-clip01",
+          "linkCount": 3,
+          "imageCount": 3,
+          "sectionCount": 4,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch03-clip02",
+          "title": "프롬프팅 기초 및 비즈니스 프롬프트 연습",
+          "type": "실습",
+          "folder": "chapters/CH03/ch03-clip02",
+          "linkCount": 6,
+          "imageCount": 1,
+          "sectionCount": 4,
+          "promptCount": 4
+        },
+        {
+          "route": "#ch03-clip03",
+          "title": "Gems 소개: AI 비서 만들기",
+          "type": "실습",
+          "folder": "chapters/CH03/ch03-clip03",
+          "linkCount": 4,
+          "imageCount": 3,
+          "sectionCount": 4,
+          "promptCount": 3
+        },
+        {
+          "route": "#ch03-clip04",
+          "title": "ChatGPT 소개 및 접속 방법",
+          "type": "플랫폼",
+          "folder": "chapters/CH03/ch03-clip04",
+          "linkCount": 3,
+          "imageCount": 0,
+          "sectionCount": 4,
+          "promptCount": 2
+        }
+      ]
+    },
+    {
+      "chapterId": "ch04",
+      "chapterNum": "CH 04",
+      "title": "NotebookLM",
+      "time": "13:00",
+      "clips": [
+        {
+          "route": "#ch04-clip01",
+          "title": "NotebookLM 소개 및 문서 기반 AI 연구 도우미",
+          "type": "플랫폼",
+          "folder": "chapters/CH04/ch04-clip01",
+          "linkCount": 3,
+          "imageCount": 1,
+          "sectionCount": 4,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch04-clip02",
+          "title": "문서 기반 AI 리서치: CIQO와 LG 스타일 브리핑",
+          "type": "실습",
+          "folder": "chapters/CH04/ch04-clip02",
+          "linkCount": 7,
+          "imageCount": 1,
+          "sectionCount": 4,
+          "promptCount": 2
+        },
+        {
+          "route": "#ch04-clip03",
+          "title": "기업 분석 코스: 열린 주제로 해보는 NotebookLM 분석",
+          "type": "실습",
+          "folder": "chapters/CH04/ch04-clip03",
+          "linkCount": 6,
+          "imageCount": 0,
+          "sectionCount": 3,
+          "promptCount": 2
+        }
+      ]
+    },
+    {
+      "chapterId": "ch05",
+      "chapterNum": "CH 05",
+      "title": "AI Studio와 API 이해",
+      "time": "13:45",
+      "clips": [
+        {
+          "route": "#ch05-clip01",
+          "title": "Hi-D Code 소개 및 시연",
+          "type": "개요",
+          "folder": "chapters/CH05/ch05-clip01",
+          "linkCount": 4,
+          "imageCount": 7,
+          "sectionCount": 7,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch05-clip02",
+          "title": "Google AI Studio API 키 발급",
+          "type": "설정",
+          "folder": "chapters/CH05/ch05-clip02",
+          "linkCount": 2,
+          "imageCount": 4,
+          "sectionCount": 4,
+          "promptCount": 0
+        }
+      ]
+    },
+    {
+      "chapterId": "ch06",
+      "chapterNum": "CH 06",
+      "title": "Vibe Coding",
+      "time": "13:55",
+      "clips": [
+        {
+          "route": "#ch06-clip01",
+          "title": "바이브 코딩이란",
+          "type": "개념",
+          "folder": "chapters/CH06/ch06-clip01",
+          "linkCount": 2,
+          "imageCount": 1,
+          "sectionCount": 3,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch06-clip02",
+          "title": "Google AI Studio Build 시작하기",
+          "type": "실습",
+          "folder": "chapters/CH06/ch06-clip02",
+          "linkCount": 5,
+          "imageCount": 4,
+          "sectionCount": 4,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch06-clip03",
+          "title": "실습 워크숍: 경쟁사 리서치 대시보드",
+          "type": "실습",
+          "folder": "chapters/CH06/ch06-clip03",
+          "linkCount": 9,
+          "imageCount": 0,
+          "sectionCount": 5,
+          "promptCount": 5
+        }
+      ]
+    },
+    {
+      "chapterId": "ch07",
+      "chapterNum": "CH 07",
+      "title": "Agentic AI",
+      "time": "16:00",
+      "clips": [
+        {
+          "route": "#ch07-clip01",
+          "title": "에이전틱 AI란",
+          "type": "개념",
+          "folder": "chapters/CH07/ch07-clip01",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 6,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch07-clip02",
+          "title": "에이전틱 AI 도구 소개",
+          "type": "개념",
+          "folder": "chapters/CH07/ch07-clip02",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 3,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch07-clip03",
+          "title": "시연: 3종 보고서 → 대시보드",
+          "type": "개요",
+          "folder": "chapters/CH07/ch07-clip03",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 4,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch07-clip04",
+          "title": "듀얼 출력의 원리 심화",
+          "type": "참고",
+          "folder": "chapters/CH07/ch07-clip04",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 2,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch07-clip05",
+          "title": "HTML + PPT 동시 출력 심화",
+          "type": "참고",
+          "folder": "chapters/CH07/ch07-clip05",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 2,
+          "promptCount": 1
+        },
+        {
+          "route": "#ch07-clip06",
+          "title": "스킬(Skill)이란 심화",
+          "type": "참고",
+          "folder": "chapters/CH07/ch07-clip06",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 2,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch07-clip07",
+          "title": "스킬 저장 & 재사용 심화",
+          "type": "참고",
+          "folder": "chapters/CH07/ch07-clip07",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 1,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch07-clip08",
+          "title": "정리 & 핵심 인사이트",
+          "type": "개요",
+          "folder": "chapters/CH07/ch07-clip08",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 3,
+          "promptCount": 0
+        }
+      ]
+    },
+    {
+      "chapterId": "ch08",
+      "chapterNum": "CH 08",
+      "title": "참고자료 라이브러리",
+      "time": "",
+      "clips": [
+        {
+          "route": "#ch08-clip01",
+          "title": "Tool Pantry (MCPMCPAI에게 도구를 쥐어주는 표준 규격이에요. 이 규격 덕분에 AI가 이메일 전송, 캘린더 확인, 데이터 조회 같은 실제 업무 도구를 직접 사용할 수 있게 됩니다. & CLICLI마우스 대신 텍스트 명령어로 컴퓨터를 조작하는 방식이에요. 검은 화면에 글자를 타이핑하는 그것! 개발자 도구의 기본이고, Antigravity도 CLI 기반으로 동작합니다.)",
+          "type": "참고",
+          "folder": "chapters/CH08/ch08-clip01",
+          "linkCount": 21,
+          "imageCount": 0,
+          "sectionCount": 2,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch08-clip02",
+          "title": "Copilot 참고자료",
+          "type": "참고",
+          "folder": "chapters/CH08/ch08-clip02",
+          "linkCount": 4,
+          "imageCount": 0,
+          "sectionCount": 2,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch08-clip06",
+          "title": "웹 스타일 프롬프트 가이드",
+          "type": "참고",
+          "folder": "chapters/CH08/ch08-clip06",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 1,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch08-clip03",
+          "title": "추가 읽을거리",
+          "type": "참고",
+          "folder": "chapters/CH08/ch08-clip03",
+          "linkCount": 28,
+          "imageCount": 0,
+          "sectionCount": 1,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch08-clip04",
+          "title": "실습용 컨텍스트 파일",
+          "type": "참고",
+          "folder": "chapters/CH08/ch08-clip04",
+          "linkCount": 37,
+          "imageCount": 0,
+          "sectionCount": 8,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch08-clip05",
+          "title": "AI Readiness 분석",
+          "type": "참고",
+          "folder": "chapters/CH08/ch08-clip05",
+          "linkCount": 3,
+          "imageCount": 0,
+          "sectionCount": 1,
+          "promptCount": 0
+        }
+      ]
+    },
+    {
+      "chapterId": "ch09",
+      "chapterNum": "CH 09",
+      "title": "Key Takeaways & Q/A",
+      "time": "17:00",
+      "clips": [
+        {
+          "route": "#ch09-clip01",
+          "title": "오늘의 핵심 정리",
+          "type": "개요",
+          "folder": "chapters/CH09/ch09-clip01",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 5,
+          "promptCount": 0
+        },
+        {
+          "route": "#ch09-clip02",
+          "title": "조직에서의 다음 단계",
+          "type": "참고",
+          "folder": "chapters/CH09/ch09-clip02",
+          "linkCount": 2,
+          "imageCount": 0,
+          "sectionCount": 2,
+          "promptCount": 0
+        }
+      ]
+    }
+  ],
+  "clips": [
+    {
+      "chapterId": "ch00",
+      "route": "#ch00-clip01",
+      "title": "오늘의 시간표",
+      "folder": "chapters/CH00/ch00-clip01",
+      "textLength": 1132,
+      "htmlLength": 6405,
+      "sectionCount": 4,
+      "promptCount": 0,
+      "linkCount": 10,
+      "imageCount": 0,
+      "type": "개요"
+    },
+    {
+      "chapterId": "ch00",
+      "route": "#ch00-clip02",
+      "title": "자사 생성형 AI 서비스 현황",
+      "folder": "chapters/CH00/ch00-clip02",
+      "textLength": 1993,
+      "htmlLength": 8881,
+      "sectionCount": 1,
+      "promptCount": 0,
+      "linkCount": 15,
+      "imageCount": 0,
+      "type": "개요"
+    },
+    {
+      "chapterId": "ch01",
+      "route": "#ch01-clip01",
+      "title": "AI 트렌드",
+      "folder": "chapters/CH01/ch01-clip01",
+      "textLength": 1060,
+      "htmlLength": 5930,
+      "sectionCount": 2,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0,
+      "type": "참고"
+    },
+    {
+      "chapterId": "ch01",
+      "route": "#ch01-clip02",
+      "title": "Assistant에서 Agentic AI로",
+      "folder": "chapters/CH01/ch01-clip02",
+      "textLength": 1493,
+      "htmlLength": 7260,
+      "sectionCount": 4,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0,
+      "type": "개념"
+    },
+    {
+      "chapterId": "ch01",
+      "route": "#ch01-clip03",
+      "title": "기술 활용 로드맵",
+      "folder": "chapters/CH01/ch01-clip03",
+      "textLength": 641,
+      "htmlLength": 7726,
+      "sectionCount": 0,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0,
+      "type": "개념"
+    },
+    {
+      "chapterId": "ch01",
+      "route": "#ch01-clip04",
+      "title": "개념 다지기",
+      "folder": "chapters/CH01/ch01-clip04",
+      "textLength": 3548,
+      "htmlLength": 21240,
+      "sectionCount": 1,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0,
+      "type": "참고"
+    },
+    {
+      "chapterId": "ch01",
+      "route": "#ch01-clip05",
+      "title": "비지니스 프롬프팅: AI 회의록",
+      "folder": "chapters/CH01/ch01-clip05",
+      "textLength": 824,
+      "htmlLength": 3354,
+      "sectionCount": 3,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0,
+      "type": "실습"
+    },
+    {
+      "chapterId": "ch02",
+      "route": "#ch02-clip01",
+      "title": "EXAONEEXAONELG AI Research가 만든 우리 LG의 자체 AI 모델이에요. 사내 서버에 설치할 수 있어서 기밀 데이터도 안전하게 처리할 수 있는 것이 큰 장점입니다. 소개",
+      "folder": "chapters/CH02/ch02-clip01",
+      "textLength": 926,
+      "htmlLength": 5861,
+      "sectionCount": 2,
+      "promptCount": 0,
+      "linkCount": 3,
+      "imageCount": 1
+    },
+    {
+      "chapterId": "ch02",
+      "route": "#ch02-clip02",
+      "title": "EXAONEEXAONELG AI Research가 만든 우리 LG의 자체 AI 모델이에요. 사내 서버에 설치할 수 있어서 기밀 데이터도 안전하게 처리할 수 있는 것이 큰 장점입니다. 실습",
+      "folder": "chapters/CH02/ch02-clip02",
+      "textLength": 11511,
+      "htmlLength": 20996,
+      "sectionCount": 3,
+      "promptCount": 9,
+      "linkCount": 4,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch02",
+      "route": "#ch02-clip03",
+      "title": "AI 모델 비교",
+      "folder": "chapters/CH02/ch02-clip03",
+      "textLength": 928,
+      "htmlLength": 5580,
+      "sectionCount": 1,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 4
+    },
+    {
+      "chapterId": "ch02",
+      "route": "#ch02-clip04",
+      "title": "실습 시트",
+      "folder": "chapters/CH02/ch02-clip04",
+      "textLength": 1298,
+      "htmlLength": 7314,
+      "sectionCount": 3,
+      "promptCount": 0,
+      "linkCount": 3,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch03",
+      "route": "#ch03-clip01",
+      "title": "Gemini 소개 및 접속 방법",
+      "folder": "chapters/CH03/ch03-clip01",
+      "textLength": 980,
+      "htmlLength": 7600,
+      "sectionCount": 4,
+      "promptCount": 0,
+      "linkCount": 3,
+      "imageCount": 3,
+      "type": "플랫폼"
+    },
+    {
+      "chapterId": "ch03",
+      "route": "#ch03-clip02",
+      "title": "프롬프팅 기초 및 비즈니스 프롬프트 연습",
+      "folder": "chapters/CH03/ch03-clip02",
+      "textLength": 2400,
+      "htmlLength": 9800,
+      "sectionCount": 4,
+      "promptCount": 4,
+      "linkCount": 6,
+      "imageCount": 1
+    },
+    {
+      "chapterId": "ch03",
+      "route": "#ch03-clip03",
+      "title": "Gems 소개: AI 비서 만들기",
+      "folder": "chapters/CH03/ch03-clip03",
+      "textLength": 1800,
+      "htmlLength": 8400,
+      "sectionCount": 4,
+      "promptCount": 3,
+      "linkCount": 4,
+      "imageCount": 3
+    },
+    {
+      "chapterId": "ch04",
+      "route": "#ch04-clip01",
+      "title": "NotebookLM 소개 및 문서 기반 AI 연구 도우미",
+      "folder": "chapters/CH04/ch04-clip01",
+      "textLength": 0,
+      "htmlLength": 0,
+      "sectionCount": 4,
+      "promptCount": 0,
+      "linkCount": 3,
+      "imageCount": 1
+    },
+    {
+      "chapterId": "ch04",
+      "route": "#ch04-clip02",
+      "title": "문서 기반 AI 리서치: CIQO와 LG 스타일 브리핑",
+      "folder": "chapters/CH04/ch04-clip02",
+      "textLength": 0,
+      "htmlLength": 0,
+      "sectionCount": 4,
+      "promptCount": 2,
+      "linkCount": 7,
+      "imageCount": 1
+    },
+    {
+      "chapterId": "ch04",
+      "route": "#ch04-clip03",
+      "title": "기업 분석 코스: 열린 주제로 해보는 NotebookLM 분석",
+      "folder": "chapters/CH04/ch04-clip03",
+      "textLength": 0,
+      "htmlLength": 0,
+      "sectionCount": 3,
+      "promptCount": 2,
+      "linkCount": 6,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch05",
+      "route": "#ch05-clip01",
+      "title": "Hi-D Code 소개 및 시연",
+      "folder": "chapters/CH05/ch05-clip01",
+      "textLength": 1328,
+      "htmlLength": 9182,
+      "sectionCount": 7,
+      "promptCount": 0,
+      "linkCount": 4,
+      "imageCount": 7,
+      "type": "개요"
+    },
+    {
+      "chapterId": "ch05",
+      "route": "#ch05-clip02",
+      "title": "Google AI Studio API 키 발급",
+      "folder": "chapters/CH05/ch05-clip02",
+      "textLength": 789,
+      "htmlLength": 7265,
+      "sectionCount": 4,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 4,
+      "type": "설정"
+    },
+    {
+      "chapterId": "ch06",
+      "route": "#ch06-clip01",
+      "title": "바이브 코딩이란",
+      "folder": "chapters/CH06/ch06-clip01",
+      "textLength": 820,
+      "htmlLength": 5280,
+      "sectionCount": 3,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 1
+    },
+    {
+      "chapterId": "ch06",
+      "route": "#ch06-clip02",
+      "title": "Google AI Studio Build 시작하기",
+      "folder": "chapters/CH06/ch06-clip02",
+      "textLength": 1510,
+      "htmlLength": 9050,
+      "sectionCount": 4,
+      "promptCount": 0,
+      "linkCount": 5,
+      "imageCount": 4
+    },
+    {
+      "chapterId": "ch06",
+      "route": "#ch06-clip03",
+      "title": "실습 워크숍: 경쟁사 리서치 대시보드",
+      "folder": "chapters/CH06/ch06-clip03",
+      "textLength": 1910,
+      "htmlLength": 9150,
+      "sectionCount": 5,
+      "promptCount": 5,
+      "linkCount": 9,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch07",
+      "route": "#ch07-clip01",
+      "title": "에이전틱 AI란",
+      "folder": "chapters/CH07/ch07-clip01",
+      "textLength": 1790,
+      "htmlLength": 13757,
+      "sectionCount": 6,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0,
+      "type": "개념"
+    },
+    {
+      "chapterId": "ch07",
+      "route": "#ch07-clip02",
+      "title": "에이전틱 AI 도구 소개",
+      "folder": "chapters/CH07/ch07-clip02",
+      "textLength": 1478,
+      "htmlLength": 9567,
+      "sectionCount": 3,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch07",
+      "route": "#ch07-clip03",
+      "title": "시연: 3종 보고서 → 대시보드",
+      "folder": "chapters/CH07/ch07-clip03",
+      "textLength": 1828,
+      "htmlLength": 7774,
+      "sectionCount": 4,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch07",
+      "route": "#ch07-clip04",
+      "title": "듀얼 출력의 원리 심화",
+      "folder": "chapters/CH07/ch07-clip04",
+      "textLength": 753,
+      "htmlLength": 3913,
+      "sectionCount": 2,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch07",
+      "route": "#ch07-clip05",
+      "title": "HTML + PPT 동시 출력 심화",
+      "folder": "chapters/CH07/ch07-clip05",
+      "textLength": 1000,
+      "htmlLength": 3311,
+      "sectionCount": 2,
+      "promptCount": 1,
+      "linkCount": 2,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch07",
+      "route": "#ch07-clip06",
+      "title": "스킬(Skill)이란 심화",
+      "folder": "chapters/CH07/ch07-clip06",
+      "textLength": 793,
+      "htmlLength": 3719,
+      "sectionCount": 2,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch07",
+      "route": "#ch07-clip07",
+      "title": "스킬 저장 & 재사용 심화",
+      "folder": "chapters/CH07/ch07-clip07",
+      "textLength": 475,
+      "htmlLength": 1882,
+      "sectionCount": 1,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch07",
+      "route": "#ch07-clip08",
+      "title": "정리 & 핵심 인사이트",
+      "folder": "chapters/CH07/ch07-clip08",
+      "textLength": 1437,
+      "htmlLength": 6256,
+      "sectionCount": 3,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch08",
+      "route": "#ch08-clip01",
+      "title": "Tool Pantry (MCPMCPAI에게 도구를 쥐어주는 표준 규격이에요. 이 규격 덕분에 AI가 이메일 전송, 캘린더 확인, 데이터 조회 같은 실제 업무 도구를 직접 사용할 수 있게 됩니다. & CLICLI마우스 대신 텍스트 명령어로 컴퓨터를 조작하는 방식이에요. 검은 화면에 글자를 타이핑하는 그것! 개발자 도구의 기본이고, Antigravity도 CLI 기반으로 동작합니다.)",
+      "folder": "chapters/CH08/ch08-clip01",
+      "textLength": 1698,
+      "htmlLength": 15122,
+      "sectionCount": 2,
+      "promptCount": 0,
+      "linkCount": 21,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch08",
+      "route": "#ch08-clip02",
+      "title": "Copilot 참고자료",
+      "folder": "chapters/CH08/ch08-clip02",
+      "textLength": 463,
+      "htmlLength": 1670,
+      "sectionCount": 2,
+      "promptCount": 0,
+      "linkCount": 4,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch08",
+      "route": "#ch08-clip06",
+      "title": "웹 스타일 프롬프트 가이드",
+      "folder": "chapters/CH08/ch08-clip06",
+      "textLength": 0,
+      "htmlLength": 0,
+      "sectionCount": 1,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch08",
+      "route": "#ch08-clip03",
+      "title": "추가 읽을거리",
+      "folder": "chapters/CH08/ch08-clip03",
+      "textLength": 3352,
+      "htmlLength": 18381,
+      "sectionCount": 1,
+      "promptCount": 0,
+      "linkCount": 28,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch08",
+      "route": "#ch08-clip04",
+      "title": "실습용 컨텍스트 파일",
+      "folder": "chapters/CH08/ch08-clip04",
+      "textLength": 75340,
+      "htmlLength": 96023,
+      "sectionCount": 8,
+      "promptCount": 0,
+      "linkCount": 37,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch08",
+      "route": "#ch08-clip05",
+      "title": "AI Readiness 분석",
+      "folder": "chapters/CH08/ch08-clip05",
+      "textLength": 329,
+      "htmlLength": 1759,
+      "sectionCount": 1,
+      "promptCount": 0,
+      "linkCount": 3,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch09",
+      "route": "#ch09-clip01",
+      "title": "오늘의 핵심 정리",
+      "folder": "chapters/CH09/ch09-clip01",
+      "textLength": 1756,
+      "htmlLength": 9150,
+      "sectionCount": 5,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0
+    },
+    {
+      "chapterId": "ch09",
+      "route": "#ch09-clip02",
+      "title": "조직에서의 다음 단계",
+      "folder": "chapters/CH09/ch09-clip02",
+      "textLength": 506,
+      "htmlLength": 1607,
+      "sectionCount": 2,
+      "promptCount": 0,
+      "linkCount": 2,
+      "imageCount": 0
+    }
+  ],
+  "links": {
+    "discoveredTotal": 94,
+    "queuedExternal": 92,
+    "downloaded": 85,
+    "failed": 7
+  },
+  "warnings": [],
+  "finishedAt": "2026-02-28T01:54:59.032Z"
+}

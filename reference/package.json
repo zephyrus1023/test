@@ -1,0 +1,12 @@
+{
+  "name": "ax-literacy",
+  "version": "1.0.0",
+  "description": "AX_CAMP-style training site with account-based login",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "build:pages": "node scripts/build-pages.mjs",
+    "preview:pages": "node scripts/preview-pages.mjs"
+  }
+}

@@ -1,0 +1,45 @@
+[
+  {
+    "id": "CH01",
+    "title": "CH01. AI 핵심 개념 및 이해",
+    "clips": [
+      {
+        "id": "ch01-clip01",
+        "title": "01. AI와 Generative AI 개요",
+        "type": "개념"
+      },
+      {
+        "id": "ch01-clip02",
+        "title": "02. 프롬프트 엔지니어링 핵심 기법",
+        "type": "실습"
+      }
+    ]
+  },
+  {
+    "id": "CH02",
+    "title": "CH02. LLM 실무 활용과 프롬프팅",
+    "clips": [
+      {
+        "id": "ch02-clip01",
+        "title": "01. ChatGPT vs Gemini 비교 분석",
+        "type": "개념"
+      },
+      {
+        "id": "ch02-clip02",
+        "title": "02. 업무 자동화를 위한 프롬프트 작성",
+        "type": "실습"
+      }
+    ]
+  },
+  {
+    "id": "CH03",
+    "title": "CH03. 새로운 챕터",
+    "clips": [
+      {
+        "id": "ch03-clip01",
+        "title": "엿먹어",
+        "type": "실습"
+      }
+    ]
+  }
+]

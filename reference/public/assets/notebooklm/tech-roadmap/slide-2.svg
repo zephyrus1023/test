@@ -1,0 +1,82 @@
+<svg width="1376" height="768" viewBox="0 0 1376 768" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="88" y1="58" x2="1288" y2="710" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9FBFF"/>
+      <stop offset="1" stop-color="#EAF3FF"/>
+    </linearGradient>
+    <linearGradient id="ink2" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#163C71"/>
+      <stop offset="1" stop-color="#2E6BC3"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 38px 'Pretendard','Noto Sans KR',sans-serif; fill: #122B54; }
+      .subtitle { font: 500 19px 'Pretendard','Noto Sans KR',sans-serif; fill: #466183; }
+      .kicker { font: 700 17px 'Pretendard','Noto Sans KR',sans-serif; fill: #1A63CA; letter-spacing: 0.08em; text-transform: uppercase; }
+      .section { font: 700 22px 'Pretendard','Noto Sans KR',sans-serif; fill: #15345F; }
+      .body { font: 500 18px 'Pretendard','Noto Sans KR',sans-serif; fill: #3C5578; }
+      .strong { font: 700 18px 'Pretendard','Noto Sans KR',sans-serif; fill: #173C69; }
+      .white { font: 700 20px 'Pretendard','Noto Sans KR',sans-serif; fill: #FFFFFF; }
+      .pill { font: 700 17px 'Pretendard','Noto Sans KR',sans-serif; fill: #184D95; }
+      .tiny { font: 600 15px 'Pretendard','Noto Sans KR',sans-serif; fill: #607796; }
+    </style>
+  </defs>
+
+  <rect width="1376" height="768" rx="32" fill="url(#bg2)"/>
+  <rect x="56" y="48" width="1264" height="672" rx="32" fill="#FFFFFF" stroke="#D4E1F7"/>
+
+  <text x="96" y="110" class="kicker">NotebookLM Concept Deck</text>
+  <text x="96" y="160" class="title">API / Build | AI로 만들고, 만든 서비스가 다시 AI를 사용하는 단계</text>
+  <text x="96" y="198" class="subtitle">AI Studio Build와 Gemini API를 통해 개발 생산성과 서비스 자동화를 동시에 끌어올리는 구조</text>
+
+  <rect x="92" y="246" width="352" height="376" rx="30" fill="#F7FAFF" stroke="#D7E3F7"/>
+  <text x="126" y="290" class="section">Builder Workspace</text>
+  <text x="126" y="324" class="body">자연어로 서비스 흐름을 설계하고, AI가 UI와 로직 초안을 빠르게 제안</text>
+  <rect x="126" y="360" width="284" height="66" rx="18" fill="#EAF3FF" stroke="#C9DAF7"/>
+  <text x="152" y="399" class="strong">Prompt:</text>
+  <text x="226" y="399" class="body">회의 인사이트를 요약하는 앱 만들어줘</text>
+  <rect x="126" y="458" width="126" height="122" rx="20" fill="#FFFFFF" stroke="#C9DAF7"/>
+  <text x="152" y="496" class="strong">화면 초안</text>
+  <rect x="154" y="520" width="70" height="12" rx="6" fill="#CEDCF4"/>
+  <rect x="154" y="546" width="52" height="12" rx="6" fill="#E4ECF9"/>
+  <rect x="268" y="458" width="142" height="122" rx="20" fill="#FFFFFF" stroke="#C9DAF7"/>
+  <text x="294" y="496" class="strong">생성된 흐름</text>
+  <text x="294" y="528" class="tiny">입력 → LLM 호출 → 결과 저장</text>
+  <text x="294" y="558" class="tiny">권한 · guardrail · 로그</text>
+
+  <path d="M476 432H566" stroke="#4C8EEA" stroke-width="10" stroke-linecap="round"/>
+  <path d="M544 416L570 432L544 448" fill="none" stroke="#4C8EEA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="566" y="332" width="244" height="200" rx="30" fill="url(#ink2)"/>
+  <text x="620" y="382" class="white">AI Studio Build</text>
+  <text x="610" y="416" class="white">서비스 흐름 설계</text>
+  <text x="620" y="450" class="white">프로토타입 구현</text>
+  <text x="598" y="484" class="white">실행 가드레일 연결</text>
+
+  <path d="M842 432H908" stroke="#4C8EEA" stroke-width="10" stroke-linecap="round"/>
+  <path d="M886 416L912 432L886 448" fill="none" stroke="#4C8EEA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="912" y="238" width="344" height="392" rx="30" fill="#F7FAFF" stroke="#D7E3F7"/>
+  <text x="946" y="282" class="section">Service Architecture</text>
+  <rect x="968" y="318" width="232" height="62" rx="18" fill="#FFFFFF" stroke="#C9DAF7"/>
+  <text x="1038" y="356" class="strong">사용자 · 업무 요청</text>
+  <path d="M1084 380V414" stroke="#4C8EEA" stroke-width="8" stroke-linecap="round"/>
+  <rect x="968" y="414" width="232" height="78" rx="22" fill="#EAF3FF" stroke="#BED4F7"/>
+  <text x="1030" y="455" class="strong">맞춤형 앱 / 내부 서비스</text>
+  <path d="M1084 492V524" stroke="#4C8EEA" stroke-width="8" stroke-linecap="round"/>
+  <rect x="968" y="524" width="232" height="62" rx="18" fill="#173E74"/>
+  <text x="1050" y="562" class="white">Gemini API</text>
+  <rect x="1222" y="430" width="26" height="26" rx="13" fill="#4C8EEA"/>
+  <rect x="1222" y="466" width="26" height="26" rx="13" fill="#4C8EEA"/>
+  <rect x="1222" y="502" width="26" height="26" rx="13" fill="#4C8EEA"/>
+  <text x="1258" y="448" class="tiny">사내 데이터</text>
+  <text x="1258" y="484" class="tiny">외부 API</text>
+  <text x="1258" y="520" class="tiny">자동화 워크플로우</text>
+
+  <rect x="94" y="648" width="210" height="44" rx="22" fill="#EBF4FF" stroke="#C8DAF7"/>
+  <text x="133" y="677" class="pill">AI Studio Build</text>
+  <rect x="322" y="648" width="198" height="44" rx="22" fill="#EBF4FF" stroke="#C8DAF7"/>
+  <text x="370" y="677" class="pill">Gemini API</text>
+  <rect x="538" y="648" width="144" height="44" rx="22" fill="#EBF4FF" stroke="#C8DAF7"/>
+  <text x="588" y="677" class="pill">Colab</text>
+  <text x="786" y="675" class="tiny">AI가 개발을 돕고, 개발된 서비스가 다시 AI를 호출한다</text>
+</svg>

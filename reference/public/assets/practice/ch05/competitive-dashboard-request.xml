@@ -1,0 +1,26 @@
+<app_request>
+  <goal>Create an executive-ready competitive intelligence dashboard.</goal>
+  <users>Business leaders with no coding background</users>
+  <data_sources>
+    <source>Google Search grounding</source>
+    <source>Optional Firecrawl API</source>
+  </data_sources>
+  <must_have_features>
+    <feature>Keyword search</feature>
+    <feature>3-line summary cards</feature>
+    <feature>Importance tagging</feature>
+    <feature>Category filtering</feature>
+    <feature>CSV export</feature>
+  </must_have_features>
+  <style>
+    <brand>LG-style executive dashboard</brand>
+    <primary_color>#A50034</primary_color>
+    <secondary_color>#6B6B6B</secondary_color>
+    <background>white</background>
+  </style>
+  <delivery_notes>
+    <note>Use React as the framework.</note>
+    <note>Keep the interface concise and executive-friendly.</note>
+    <note>Separate API secrets from app code.</note>
+  </delivery_notes>
+</app_request>

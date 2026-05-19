@@ -1,0 +1,43 @@
+{
+  "route": "#ch05-clip01",
+  "url": "https://lg.cmdspace.work/axcamp#ch05-clip01",
+  "pageTitle": "AX Camp for Leaders | LG",
+  "clipTitle": "Hi-D Code 소개 및 시연",
+  "overview": "최남석(Agentic AI 팀)님이 자사 Vibe Coding 환경인 Hi-D Code의 구축 현황과, 이미지상 불량 검출 S/W 개발 사례를 중심으로 활용 가능성을 소개합니다.",
+  "badges": [
+    "~10분",
+    "CH 05",
+    "개요"
+  ],
+  "links": [],
+  "sections": [
+    {
+      "index": 1,
+      "title": "무엇을 보나",
+      "text": "- Hi-D Code 를 소개합니다\n\n- 자사의 Vibe Coding 환경 (Hi-D Code)의 구축 현황\n\n- Hi-D Code 환경을 사용한 간단한 App 개발 사례 소개: 이미지상 불량 검출 S/W 개발",
+      "html": "<ul style=\"margin:0; padding-left:1.2rem; line-height:1.8; color:var(--text-body)\">\n      <li>Hi-D Code 를 소개합니다</li>\n      <li>자사의 Vibe Coding 환경 (Hi-D Code)의 구축 현황</li>\n      <li>Hi-D Code 환경을 사용한 간단한 App 개발 사례 소개: 이미지상 불량 검출 S/W 개발</li>\n    </ul>",
+      "images": [],
+      "iframes": [],
+      "audios": [],
+      "videos": []
+    },
+    {
+      "index": 2,
+      "title": "짧은 시연 흐름",
+      "text": "단계\n설명\n\n1. 목표입력\n과제 프롬프팅시 어떤 목적의 App 을 만드는지, 제반사항은 무엇인지 설명합니다. (e.g. 불량검출 App)\n\n2. 실행확인\nAI 가 작업을 어떻게 수행하는지 확인하고 필요시 코드 수정을 지시합니다.\n\n3. 결과검토\n생산된 산출물을 보고 수정 방향을 다시 바로잡습니다.",
+      "html": "<table class=\"comparison-table\">\n      <thead>\n        <tr>\n          <th>단계</th>\n          <th>설명</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td>1. 목표입력</td>\n          <td>과제 프롬프팅시 어떤 목적의 App 을 만드는지, 제반사항은 무엇인지 설명합니다. (e.g. 불량검출 App)</td>\n        </tr>\n        <tr>\n          <td>2. 실행확인</td>\n          <td>AI 가 작업을 어떻게 수행하는지 확인하고 필요시 코드 수정을 지시합니다.</td>\n        </tr>\n        <tr>\n          <td>3. 결과검토</td>\n          <td>생산된 산출물을 보고 수정 방향을 다시 바로잡습니다.</td>\n        </tr>\n      </tbody>\n    </table>",
+      "images": [],
+      "iframes": [],
+      "audios": [],
+      "videos": []
+    }
+  ],
+  "prompts": [],
+  "images": [],
+  "iframes": [],
+  "audios": [],
+  "videos": [],
+  "navTitle": "Hi-D Code 소개 및 시연",
+  "html": "<div class=\"clip-header\">\n  <div class=\"clip-badges\">\n    <span class=\"clip-badge time\">~10분</span>\n    <span class=\"clip-badge chapter\">CH 05</span>\n    <span class=\"clip-badge type-overview\">개요</span>\n  </div>\n  <h1 class=\"clip-title\">Hi-D Code 소개 및 시연</h1>\n</div>\n\n<div class=\"clip-section\">\n  <div class=\"clip-overview\">\n    최남석(Agentic AI 팀)님이 자사 Vibe Coding 환경인 Hi-D Code의 구축 현황과, 이미지상 불량 검출 S/W 개발 사례를 중심으로 활용 가능성을 소개합니다.\n  </div>\n</div>\n\n<div class=\"clip-section\">\n  <div class=\"clip-section-title\">무엇을 보나</div>\n  <div class=\"clip-section-content\">\n    <ul style=\"margin:0; padding-left:1.2rem; line-height:1.8; color:var(--text-body)\">\n      <li>Hi-D Code 를 소개합니다</li>\n      <li>자사의 Vibe Coding 환경 (Hi-D Code)의 구축 현황</li>\n      <li>Hi-D Code 환경을 사용한 간단한 App 개발 사례 소개: 이미지상 불량 검출 S/W 개발</li>\n    </ul>\n  </div>\n</div>\n\n<div class=\"clip-section\">\n  <div class=\"clip-section-title\">짧은 시연 흐름</div>\n  <div class=\"clip-section-content\">\n    <table class=\"comparison-table\">\n      <thead>\n        <tr>\n          <th>단계</th>\n          <th>설명</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td>1. 목표입력</td>\n          <td>과제 프롬프팅시 어떤 목적의 App 을 만드는지, 제반사항은 무엇인지 설명합니다. (e.g. 불량검출 App)</td>\n        </tr>\n        <tr>\n          <td>2. 실행확인</td>\n          <td>AI 가 작업을 어떻게 수행하는지 확인하고 필요시 코드 수정을 지시합니다.</td>\n        </tr>\n        <tr>\n          <td>3. 결과검토</td>\n          <td>생산된 산출물을 보고 수정 방향을 다시 바로잡습니다.</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n\n<div class=\"clip-nav-footer\"><a class=\"clip-nav-btn\" href=\"#ch04-clip03\">← 바이브 코딩으로 웹앱 제작하기</a><a class=\"clip-nav-btn\" href=\"#ch06-clip01\">오늘의 핵심 정리 →</a></div>\n",
+  "text": "~10분\nCH 05\n개요\n\nHi-D Code 소개 및 시연\n\n최남석(Agentic AI 팀)님이 자사 Vibe Coding 환경인 Hi-D Code의 구축 현황과, 이미지상 불량 검출 S/W 개발 사례를 중심으로 활용 가능성을 소개합니다.\n\n무엇을 보나\n\n- Hi-D Code 를 소개합니다\n\n- 자사의 Vibe Coding 환경 (Hi-D Code)의 구축 현황\n\n- Hi-D Code 환경을 사용한 간단한 App 개발 사례 소개: 이미지상 불량 검출 S/W 개발\n\n짧은 시연 흐름\n\n단계\n설명\n\n1. 목표입력\n과제 프롬프팅시 어떤 목적의 App 을 만드는지, 제반사항은 무엇인지 설명합니다. (e.g. 불량검출 App)\n\n2. 실행확인\nAI 가 작업을 어떻게 수행하는지 확인하고 필요시 코드 수정을 지시합니다.\n\n3. 결과검토\n생산된 산출물을 보고 수정 방향을 다시 바로잡습니다."
+}

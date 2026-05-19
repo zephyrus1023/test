@@ -1,0 +1,28 @@
+{
+  "chapterId": "ch05",
+  "chapterNum": "CH 05",
+  "title": "AI Studio와 API 이해",
+  "time": "13:45",
+  "clips": [
+    {
+      "route": "#ch05-clip01",
+      "title": "LLM 앱과 API의 동작 원리",
+      "type": "개념",
+      "folder": "chapters/CH05/ch05-clip01",
+      "linkCount": 4,
+      "imageCount": 7,
+      "sectionCount": 7,
+      "promptCount": 0
+    },
+    {
+      "route": "#ch05-clip02",
+      "title": "Google AI Studio API 키 발급",
+      "type": "설정",
+      "folder": "chapters/CH05/ch05-clip02",
+      "linkCount": 2,
+      "imageCount": 4,
+      "sectionCount": 4,
+      "promptCount": 0
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "chapterId": "ch03",
+  "chapterNum": "CH 03",
+  "title": "Gemini & ChatGPT",
+  "time": "09:30",
+  "clips": [
+    {
+      "route": "#ch03-clip01",
+      "title": "Gemini 소개 및 접속 방법",
+      "type": "플랫폼",
+      "folder": "chapters/CH03/ch03-clip01",
+      "linkCount": 3,
+      "imageCount": 3,
+      "sectionCount": 4,
+      "promptCount": 0
+    },
+    {
+      "route": "#ch03-clip02",
+      "title": "프롬프팅 기초",
+      "type": "실습",
+      "folder": "chapters/CH03/ch03-clip02",
+      "linkCount": 6,
+      "imageCount": 1,
+      "sectionCount": 4,
+      "promptCount": 4
+    },
+    {
+      "route": "#ch03-clip03",
+      "title": "Gems 소개: AI 비서 만들기",
+      "type": "실습",
+      "folder": "chapters/CH03/ch03-clip03",
+      "linkCount": 4,
+      "imageCount": 3,
+      "sectionCount": 4,
+      "promptCount": 3
+    },
+    {
+      "route": "#ch03-clip04",
+      "title": "ChatGPT 및 GPTs 소개",
+      "type": "플랫폼",
+      "folder": "chapters/CH03/ch03-clip04",
+      "linkCount": 6,
+      "imageCount": 0,
+      "sectionCount": 5,
+      "promptCount": 3
+    }
+  ]
+}
