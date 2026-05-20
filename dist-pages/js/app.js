@@ -14,8 +14,8 @@ const state = {
 };
 
 // 빌드 스크립트(build.js)에서 정적 배포본 생성 시 치환 가능한 상수를 추가합니다.
-const IS_STATIC_DEMO = false;
-const STATIC_BASE_PATH = '';
+const IS_STATIC_DEMO = true;
+const STATIC_BASE_PATH = '/lets-ax';
 
 const API_BASE = ''; // Same origin
 

@@ -1,0 +1,9 @@
+[
+  {
+    "id": "admin",
+    "password": "$2b$10$PdFD8.bac9KZJ4EUzvlmzevTkS0LvbhODnuiegrSWwH6GJQS5y6G.",
+    "name": "관리자",
+    "team": "AX운영팀",
+    "role": "admin"
+  }
+]
