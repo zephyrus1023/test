@@ -28,7 +28,12 @@ jobs:
         run: npm install
 
       - name: Build static Page artifact 
-        run: npm run build:pages -- --base-path "/${{ github.event.repository.name }}"
+        run: |
+          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2 | tr '[:upper:]' '[:lower:]')
+          npm run build:pages -- --base-path "/$REPO_NAME"
+
+      - name: Verify build artifact structure
+        run: ls -la dist-pages
 
       - name: Upload Pages artifact 
         uses: actions/upload-pages-artifact@v4 

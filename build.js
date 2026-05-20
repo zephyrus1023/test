@@ -79,4 +79,8 @@ if (fs.existsSync(appJsPath)) {
   process.exit(1);
 }
 
+// 8. Jekyll 빌드 비활성화를 위한 빈 .nojekyll 파일 생성
+console.log(`[Build] Jekyll 무시용 .nojekyll 파일 생성 중...`);
+fs.writeFileSync(path.join(DIST_DIR, '.nojekyll'), '', 'utf8');
+
 console.log(`[Build] GitHub Pages 용 정적 빌드가 완료되었습니다! -> ./dist-pages`);
