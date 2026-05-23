@@ -2,6 +2,9 @@
 // 전역 애플리케이션 상태 관리 (State)
 // ==========================================================================
 
+const STATIC_CONFIG = window.__AX_STATIC_CONFIG__ || null;
+const STATIC_MODE = Boolean(STATIC_CONFIG && STATIC_CONFIG.mode === 'static');
+
 const state = {
   token: localStorage.getItem('ax_token') || null,
   user: JSON.parse(localStorage.getItem('ax_user')) || null,
@@ -14,8 +17,8 @@ const state = {
 };
 
 // 빌드 스크립트(build.js)에서 정적 배포본 생성 시 치환 가능한 상수를 추가합니다.
-const IS_STATIC_DEMO = true;
-const STATIC_BASE_PATH = '/lets-ax';
+const IS_STATIC_DEMO = false;
+const STATIC_BASE_PATH = '';
 
 const API_BASE = ''; // Same origin
 
@@ -101,6 +104,26 @@ document.addEventListener('DOMContentLoaded', () => {
 function checkAuthState() {
   const authView = document.getElementById('authView');
   const appView = document.getElementById('appView');
+  
+  if (STATIC_MODE) {
+    // 정적 공개 모드일 때는 무조건 바로 입장
+    authView.classList.add('hidden');
+    appView.classList.remove('hidden');
+    
+    document.getElementById('userName').textContent = '수강생';
+    document.getElementById('userTeam').textContent = '공개 과정';
+    document.getElementById('welcomeName').textContent = '수강생';
+    
+    // 에디터는 비활성화
+    const adminControls = document.getElementById('adminControls');
+    const adminCard = document.getElementById('adminCard');
+    if (adminControls) adminControls.classList.add('hidden');
+    if (adminCard) adminCard.classList.add('hidden');
+    
+    loadChapters();
+    goToHome();
+    return;
+  }
   
   if (state.token && state.user) {
     // 로그인 상태
@@ -339,16 +362,18 @@ async function loadChapters() {
   const chapterList = document.getElementById('chapterList');
   
   try {
-    let url = `${API_BASE}/api/chapters`;
-    if (IS_STATIC_DEMO) {
-      // 정적 데모 모드일 때는 복사된 json 데이터 파일을 직접 fetch합니다.
-      url = `${STATIC_BASE_PATH}/data/content_meta.json`;
+    let data;
+    if (STATIC_MODE) {
+      const basePath = STATIC_CONFIG.basePath || '';
+      const res = await fetch(`${basePath}/data/chapters.json`);
+      if (!res.ok) throw new Error('정적 목차 데이터를 가져올 수 없습니다.');
+      data = await res.json();
+    } else {
+      const res = await fetch(`${API_BASE}/api/chapters`);
+      if (!res.ok) throw new Error('목차 데이터를 가져올 수 없습니다.');
+      data = await res.json();
     }
     
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('목차 데이터를 가져올 수 없습니다.');
-    
-    const data = await res.json();
     state.chapters = data;
     
     // 사이드바 목차 HTML 렌더링
@@ -415,25 +440,18 @@ async function selectClip(clipId) {
   viewer.innerHTML = '<div class="skeleton-line"></div><div class="skeleton-line"></div>';
   
   try {
-    let url = `${API_BASE}/api/content/${clipId}`;
-    if (IS_STATIC_DEMO) {
-      const chPart = clipId.split('-')[0].toUpperCase();
-      // 정적 데모 모드일 때는 빌드 디렉토리 하위의 마크다운 소스 파일을 직접 가져옵니다.
-      url = `${STATIC_BASE_PATH}/content/${chPart}/${clipId}.md`;
-    }
-    
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('교재 본문을 불러오는 데 실패했습니다.');
-    
-    let contentData;
-    if (IS_STATIC_DEMO) {
-      const text = await res.text();
-      contentData = { id: clipId, type: 'md', content: text };
+    let data;
+    if (STATIC_MODE) {
+      const basePath = STATIC_CONFIG.basePath || '';
+      const res = await fetch(`${basePath}/data/clips/${clipId}.json`);
+      if (!res.ok) throw new Error('정적 교재 본문을 불러오는 데 실패했습니다.');
+      data = await res.json();
     } else {
-      contentData = await res.json();
+      const res = await fetch(`${API_BASE}/api/content/${clipId}`);
+      if (!res.ok) throw new Error('교재 본문을 불러오는 데 실패했습니다.');
+      data = await res.json();
     }
-    
-    state.rawMarkdown = contentData.content;
+    state.rawMarkdown = data.content;
     
     // 마크다운 파싱 및 표시
     viewer.innerHTML = parseMarkdown(state.rawMarkdown);
@@ -525,13 +543,11 @@ function renderLivePreview(md) {
 
 // 에디터 수정본 서버 저장 API 요청
 async function saveContent() {
-  if (IS_STATIC_DEMO) {
-    alert('데모 환경(GitHub Pages)에서는 서버 파일에 영구적으로 저장할 수 없습니다.\n대신 편집하신 내용이 화면에 실시간으로 즉시 반영됩니다!');
-    // 로컬 메모리 상태에 저장하고 뷰어로 매끄럽게 전환
-    toggleEditMode();
+  if (STATIC_MODE) {
+    alert('이 기능은 GitHub Pages 공개판에서 비활성화됩니다.');
     return;
   }
-
+  
   if (!confirm('현재 편집 중인 강의 교재 내용을 저장하고 모든 사용자에게 실시간 반영하시겠습니까?')) {
     return;
   }

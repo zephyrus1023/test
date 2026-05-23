@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lets AX - 리더를 위한 AX 캠프</title>
+  
+  <!-- 구글 폰트: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 아이콘 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS 스타일시트 -->
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+  <!-- 1. 인증 화면 (로그인 / 회원가입) -->
+  <section id="authView" class="auth-view">
+    <div class="auth-background-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <div class="logo">
+            <span class="logo-accent"><i class="fa-solid fa-bolt"></i></span>
+            <span class="logo-text">Lets AX</span>
+          </div>
+          <h1>AX Camp for Leaders</h1>
+          <p class="subtitle">AI 전환(AX) 리더를 위한 전용 강의 교재 포털</p>
+        </div>
+
+        <!-- 탭 전환 버튼 -->
+        <div class="auth-tabs">
+          <button id="tabLoginBtn" type="button" class="auth-tab active" onclick="switchAuthTab('login')">로그인</button>
+          <button id="tabSignupBtn" type="button" class="auth-tab" onclick="switchAuthTab('signup')">회원가입</button>
+        </div>
+
+        <!-- 로그인 폼 -->
+        <form id="loginForm" class="auth-form active" onsubmit="handleLogin(event)">
+          <div class="input-group">
+            <label for="loginId"><i class="fa-regular fa-user"></i> Let's ID</label>
+            <input type="text" id="loginId" placeholder="아이디를 입력하세요" required autocomplete="username">
+          </div>
+          <div class="input-group">
+            <label for="loginPassword"><i class="fa-regular fa-key"></i> 비밀번호</label>
+            <input type="password" id="loginPassword" placeholder="비밀번호를 입력하세요" required autocomplete="current-password">
+          </div>
+          <p id="loginError" class="auth-error-message"></p>
+          <button id="submitLoginBtn" type="submit" class="btn btn-primary btn-block">로그인</button>
+        </form>
+
+        <!-- 회원가입 폼 -->
+        <form id="signupForm" class="auth-form" onsubmit="handleSignup(event)">
+          <div class="input-group">
+            <label for="signupId"><i class="fa-regular fa-user"></i> Let's ID</label>
+            <input type="text" id="signupId" placeholder="사용할 아이디 (2글자 이상)" minlength="2" required>
+          </div>
+          <div class="input-group">
+            <label for="signupPassword"><i class="fa-regular fa-key"></i> 비밀번호</label>
+            <input type="password" id="signupPassword" placeholder="비밀번호 (2글자 이상)" minlength="2" required>
+          </div>
+          <div class="input-grid">
+            <div class="input-group">
+              <label for="signupName"><i class="fa-regular fa-id-card"></i> 이름</label>
+              <input type="text" id="signupName" placeholder="예: 홍길동" required>
+            </div>
+            <div class="input-group">
+              <label for="signupTeam"><i class="fa-regular fa-users"></i> 소속 팀명</label>
+              <input type="text" id="signupTeam" placeholder="예: AX추진팀" required>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="signupCourseCode"><i class="fa-regular fa-graduation-cap"></i> 교육과정 코드</label>
+            <input type="text" id="signupCourseCode" placeholder="예: AXCAMP" value="AXCAMP" required>
+          </div>
+          <p id="signupError" class="auth-error-message"></p>
+          <button id="submitSignupBtn" type="submit" class="btn btn-primary btn-block">회원가입 완료</button>
+        </form>
+        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 메인 애플리케이션 화면 (강의 포털) -->
+  <section id="appView" class="app-view hidden">
+    <!-- 네비게이션 상단 바 -->
+    <header class="main-header">
+      <div class="header-left">
+        <button id="toggleSidebarBtn" class="toggle-sidebar-btn" aria-label="사이드바 토글" onclick="toggleSidebar()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="app-logo" onclick="goToHome()">
+          <span class="logo-accent"><i class="fa-solid fa-bolt"></i></span>
+          <span class="logo-text">Lets AX</span>
+        </div>
+        <span class="course-badge">AXCAMP 2026</span>
+      </div>
+
+      <div class="header-right">
+        <!-- 관리자 에디터 활성화 토글 -->
+        <div id="adminControls" class="admin-controls hidden">
+          <button id="editModeToggleBtn" class="btn btn-outline" onclick="toggleEditMode()">
+            <i class="fa-regular fa-pen-to-square"></i> 교재 수정 모드
+          </button>
+        </div>
+        
+        <!-- 사용자 정보 박스 -->
+        <div class="user-profile">
+          <div class="user-avatar">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <div class="user-info">
+            <span id="userName" class="user-name">-</span>
+            <span id="userTeam" class="user-team">-</span>
+          </div>
+          <button id="logoutBtn" class="btn-logout" title="로그아웃" onclick="handleLogout()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-layout">
+      <!-- 좌측 사이드바 (챕터 목차) -->
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+          <h3>강의 목차</h3>
+        </div>
+        <nav id="chapterList" class="chapter-nav">
+          <!-- JS를 통해 동적 생성됨 -->
+          <div class="sidebar-skeleton">
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line"></div>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- 중앙/우측 메인 본문 영역 -->
+      <main id="mainContent" class="main-content">
+        <!-- 홈 화면 대시보드 -->
+        <section id="homeDashboard" class="dashboard-view">
+          <div class="dashboard-hero">
+            <h1>환영합니다, <span id="welcomeName">-</span>님!</h1>
+            <p>인공지능을 도구가 아닌 새로운 가치 창출의 파트너로 삼기 위한 여정을 시작해보세요.</p>
+          </div>
+          
+          <div class="dashboard-grid">
+            <div class="dashboard-card card-primary">
+              <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+              <h3>효과적인 학습을 위해</h3>
+              <p>좌측의 목차를 클릭하여 각 강의 클립을 순서대로 이수하세요.</p>
+            </div>
+            <div class="dashboard-card">
+              <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <h3>프롬프트 실습 지원</h3>
+              <p>교재 내의 다양한 실습 템플릿과 노하우를 직접 LLM에 적용하며 인사이트를 얻어보세요.</p>
+            </div>
+            <div id="adminCard" class="dashboard-card admin-dashboard-card hidden">
+              <div class="card-icon"><i class="fa-solid fa-user-gear"></i></div>
+              <h3>관리자 전용 제어판</h3>
+              <p>우측 상단의 '교재 수정 모드'를 활성화하면 실시간으로 본문 내용을 교체하고 저장할 수 있습니다.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 교재 뷰어 영역 -->
+        <section id="viewerContainer" class="viewer-view hidden">
+          <!-- 뷰어 모드 본문 -->
+          <article id="clipViewer" class="markdown-body">
+            <!-- 마크다운 렌더링 결과가 들어옴 -->
+          </article>
+        </section>
+
+        <!-- 교재 편집기 영역 (관리자 전용) -->
+        <section id="editorContainer" class="editor-view hidden">
+          <div class="editor-header">
+            <div class="editor-meta">
+              <h2><i class="fa-regular fa-pen-to-square"></i> 실시간 교재 에디터</h2>
+              <p id="editingClipPath">현재 수정 중: <code>-</code></p>
+            </div>
+            <div class="editor-actions">
+              <button class="btn btn-outline" onclick="toggleEditMode()"><i class="fa-solid fa-xmark"></i> 취소</button>
+              <button class="btn btn-primary" onclick="saveContent()"><i class="fa-solid fa-floppy-disk"></i> 저장 및 동기화</button>
+            </div>
+          </div>
+          
+          <div class="editor-grid">
+            <!-- 좌: 에디터 폼 -->
+            <div class="editor-pane">
+              <div class="pane-label"><i class="fa-solid fa-code"></i> Markdown 소스 코드 편집</div>
+              <textarea id="markdownEditorInput" placeholder="강의 내용을 마크다운으로 편집해보세요..."></textarea>
+            </div>
+            <!-- 우: 실시간 렌더 미리보기 -->
+            <div class="preview-pane">
+              <div class="pane-label"><i class="fa-solid fa-magnifying-glass"></i> 실시간 렌더 미리보기</div>
+              <div id="markdownPreview" class="markdown-body"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <!-- 2.5. 우클릭 커스텀 컨텍스트 메뉴 (사이드바 편집용) -->
+  <div id="sidebarContextMenu" class="context-menu hidden">
+    <button id="ctxAddChapterBtn" onclick="triggerAddChapter()"><i class="fa-solid fa-folder-plus"></i> 새 챕터 추가</button>
+    <button id="ctxAddClipBtn" onclick="triggerAddClip()"><i class="fa-solid fa-file-circle-plus"></i> 새 강의 클립 추가</button>
+    <button id="ctxDeleteChapterBtn" onclick="triggerDeleteChapter()"><i class="fa-solid fa-folder-minus"></i> 챕터 삭제</button>
+    <button id="ctxDeleteClipBtn" onclick="triggerDeleteClip()"><i class="fa-solid fa-file-circle-minus"></i> 강의 클립 삭제</button>
+  </div>
+
+  <!-- 3. 마크다운 파서 Marked 라이브러리 로드 -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <!-- 4. JS 메인 스크립트 로드 -->
+  <script src="./js/app.js"></script>
+</body>
+</html>

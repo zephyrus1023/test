@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 const app = express();
-const PORT = 4071;
+const PORT = process.env.PORT || 4071;
 const SECRET_KEY = 'ax_lecture_vibrant_portal_key';
 
 // 미들웨어 설정

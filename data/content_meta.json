@@ -34,12 +34,6 @@
   {
     "id": "CH03",
     "title": "CH03. 새로운 챕터",
-    "clips": [
-      {
-        "id": "ch03-clip01",
-        "title": "엿먹어",
-        "type": "실습"
-      }
-    ]
+    "clips": []
   }
 ]
