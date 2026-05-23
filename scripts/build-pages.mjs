@@ -119,22 +119,40 @@ async function main() {
       }
     }
 
-    // 3. static-config.js 생성
-    const staticConfig = {
-      mode: "static",
-      basePath: BASE_PATH
-    };
+    // 3. static-config.js 생성 (런타임에 basePath를 동적으로 결정하여 멀티 저장소 환경에서도 완벽 대응)
+    const staticConfigContent = `(function() {
+  const getDynamicBasePath = () => {
+    const hostname = window.location.hostname;
+    const pathname = window.location.pathname;
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      return '';
+    }
+    if (hostname.endsWith('.github.io')) {
+      const segments = pathname.split('/').filter(Boolean);
+      if (segments.length > 0) {
+        return '/' + segments[0];
+      }
+    }
+    return '';
+  };
+
+  window.__AX_STATIC_CONFIG__ = {
+    mode: "static",
+    basePath: getDynamicBasePath()
+  };
+})();\n`;
+
     await fs.writeFile(
       path.join(OUT_DIR, "static-config.js"),
-      `window.__AX_STATIC_CONFIG__ = ${JSON.stringify(staticConfig, null, 2)};\n`,
+      staticConfigContent,
       "utf8"
     );
 
     // 4. index.html 스크립트 인젝션 수정
     const sourceHtml = await fs.readFile(path.join(PUBLIC_DIR, "index.html"), "utf8");
     const indexHtml = sourceHtml.replace(
-      '<script src="js/app.js"></script>',
-      '<script src="static-config.js"></script>\n  <script src="js/app.js"></script>'
+      '<script src="./js/app.js"></script>',
+      '<script src="static-config.js"></script>\n  <script src="./js/app.js"></script>'
     );
     await fs.writeFile(path.join(OUT_DIR, "index.html"), indexHtml, "utf8");
     await fs.writeFile(path.join(OUT_DIR, "404.html"), indexHtml, "utf8");
