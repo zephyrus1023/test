@@ -1004,3 +1004,60 @@ body {
 .context-menu button:active {
   transform: scale(0.98);
 }
+
+/* ==========================================================================
+   8. GitHub Token Guide Styles
+   ========================================================================== */
+
+.github-guide {
+  margin-top: 15px;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 12px;
+}
+.github-guide details {
+  cursor: pointer;
+}
+.github-guide summary {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+  transition: var(--transition-smooth);
+}
+.github-guide summary:hover {
+  color: var(--primary-color);
+}
+.github-guide summary::-webkit-details-marker {
+  display: none;
+}
+.github-guide .guide-content {
+  margin-top: 10px;
+  padding: 12px 14px;
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  border: 1px solid var(--border-color);
+}
+.github-guide .guide-content p {
+  margin-bottom: 8px;
+}
+.github-guide .guide-content ol {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.github-guide .guide-content li a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+.github-guide .guide-content li a:hover {
+  text-decoration: underline;
+}

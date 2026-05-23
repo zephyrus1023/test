@@ -7,13 +7,15 @@ const STATIC_MODE = Boolean(STATIC_CONFIG && STATIC_CONFIG.mode === 'static');
 
 const state = {
   token: localStorage.getItem('ax_token') || null,
+  githubToken: localStorage.getItem('ax_github_token') || null,
   user: JSON.parse(localStorage.getItem('ax_user')) || null,
   chapters: [],
   currentClipId: null,
   editMode: false,
   rawMarkdown: '',
   contextTargetChapterId: null,
-  contextTargetClipId: null
+  contextTargetClipId: null,
+  githubRepository: (STATIC_CONFIG && STATIC_CONFIG.repository) || null
 };
 
 // 빌드 스크립트(build.js)에서 정적 배포본 생성 시 치환 가능한 상수를 추가합니다.
@@ -21,6 +23,28 @@ const IS_STATIC_DEMO = false;
 const STATIC_BASE_PATH = '';
 
 const API_BASE = ''; // Same origin
+
+// GitHub 리포지토리 정보 파싱 헬퍼
+function getGithubRepoInfo() {
+  if (state.githubRepository) {
+    const parts = state.githubRepository.split('/');
+    if (parts.length === 2) {
+      return { owner: parts[0], repo: parts[1] };
+    }
+  }
+  
+  const hostname = window.location.hostname;
+  const pathname = window.location.pathname;
+  if (hostname.endsWith('.github.io')) {
+    const owner = hostname.split('.')[0];
+    const segments = pathname.split('/').filter(Boolean);
+    if (segments.length > 0) {
+      return { owner: owner, repo: segments[0] };
+    }
+  }
+  
+  return { owner: 'zephyrus1023', repo: 'test' };
+}
 
 // ==========================================================================
 // 초기 구동 (App Initialization)
@@ -101,59 +125,101 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 로그인/회원가입 상태 확인
-function checkAuthState() {
+async function checkAuthState() {
   const authView = document.getElementById('authView');
   const appView = document.getElementById('appView');
   
-  if (STATIC_MODE) {
-    // 정적 공개 모드일 때는 무조건 바로 입장
-    authView.classList.add('hidden');
-    appView.classList.remove('hidden');
-    
-    document.getElementById('userName').textContent = '수강생';
-    document.getElementById('userTeam').textContent = '공개 과정';
-    document.getElementById('welcomeName').textContent = '수강생';
-    
-    // 에디터는 비활성화
-    const adminControls = document.getElementById('adminControls');
-    const adminCard = document.getElementById('adminCard');
-    if (adminControls) adminControls.classList.add('hidden');
-    if (adminCard) adminCard.classList.add('hidden');
-    
-    loadChapters();
-    goToHome();
-    return;
-  }
+  // 토큰 및 사용자 정보 동기화
+  state.token = localStorage.getItem('ax_token') || null;
+  state.githubToken = localStorage.getItem('ax_github_token') || null;
+  state.user = JSON.parse(localStorage.getItem('ax_user')) || null;
   
-  if (state.token && state.user) {
-    // 로그인 상태
-    authView.classList.add('hidden');
-    appView.classList.remove('hidden');
-    
-    // 유저 정보 바인딩
-    document.getElementById('userName').textContent = state.user.name;
-    document.getElementById('userTeam').textContent = state.user.team;
-    document.getElementById('welcomeName').textContent = state.user.name;
-    
-    // 관리자 컨트롤 활성화 여부
-    const adminControls = document.getElementById('adminControls');
-    const adminCard = document.getElementById('adminCard');
-    if (state.user.role === 'admin') {
-      adminControls.classList.remove('hidden');
-      adminCard.classList.remove('hidden');
-    } else {
-      adminControls.classList.add('hidden');
-      adminCard.classList.add('hidden');
-    }
-    
-    // 목차 로드 및 홈 대시보드 로드
-    loadChapters();
-    goToHome();
-  } else {
+  const hasSession = (state.token && state.user && !state.user.isGithub) || (state.githubToken && state.user && state.user.isGithub);
+  
+  if (!hasSession) {
     // 비로그인 상태
     authView.classList.remove('hidden');
     appView.classList.add('hidden');
+    
+    // 정적 사이트(GitHub Pages) 모드라면, 기본적으로 GitHub 로그인 탭을 보여줍니다.
+    if (STATIC_MODE) {
+      switchAuthTab('github');
+      const tabLogin = document.getElementById('tabLoginBtn');
+      const tabSignup = document.getElementById('tabSignupBtn');
+      if (tabLogin) tabLogin.title = "로컬 개발 전용 (정적 모드 사용 불가)";
+      if (tabSignup) tabSignup.title = "로컬 개발 전용 (정적 모드 사용 불가)";
+    }
+    return;
   }
+  
+  // 로그인 상태 진입
+  authView.classList.add('hidden');
+  appView.classList.remove('hidden');
+  
+  // 유저 정보 바인딩
+  document.getElementById('userName').textContent = state.user.name;
+  document.getElementById('userTeam').textContent = state.user.team;
+  document.getElementById('welcomeName').textContent = state.user.name;
+  
+  // 아바타 처리
+  const avatarContainer = document.querySelector('.user-avatar');
+  if (avatarContainer) {
+    if (state.user.isGithub && state.user.avatarUrl) {
+      avatarContainer.innerHTML = `<img src="${state.user.avatarUrl}" alt="Avatar" style="width:100%; height:100%; border-radius:inherit; object-fit:cover;">`;
+    } else {
+      avatarContainer.innerHTML = `<i class="fa-solid fa-user-tie"></i>`;
+    }
+  }
+  
+  // GitHub 유저이고 토큰이 존재할 경우, 원격 리포지토리 권한을 확인하여 관리자 지정
+  if (state.user.isGithub && state.githubToken) {
+    const { owner, repo } = getGithubRepoInfo();
+    
+    try {
+      const repoRes = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+        headers: {
+          'Authorization': `Bearer ${state.githubToken}`,
+          'Accept': 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28'
+        }
+      });
+      
+      if (repoRes.ok) {
+        const repoData = await repoRes.json();
+        const permissions = repoData.permissions || {};
+        
+        if (permissions.push || permissions.admin) {
+          state.user.role = 'admin';
+          state.user.team = `${state.user.team} (리포지토리 관리자)`;
+          document.getElementById('userTeam').textContent = state.user.team;
+        } else {
+          state.user.role = 'student';
+        }
+      } else {
+        state.user.role = 'student';
+      }
+    } catch (e) {
+      console.error('GitHub 권한 확인 실패:', e);
+      state.user.role = 'student';
+    }
+    
+    localStorage.setItem('ax_user', JSON.stringify(state.user));
+  }
+  
+  // 관리자 컨트롤 활성화 여부
+  const adminControls = document.getElementById('adminControls');
+  const adminCard = document.getElementById('adminCard');
+  if (state.user.role === 'admin') {
+    if (adminControls) adminControls.classList.remove('hidden');
+    if (adminCard) adminCard.classList.remove('hidden');
+  } else {
+    if (adminControls) adminControls.classList.add('hidden');
+    if (adminCard) adminCard.classList.add('hidden');
+  }
+  
+  // 목차 로드 및 홈 대시보드 로드
+  loadChapters();
+  goToHome();
 }
 
 // ==========================================================================
@@ -163,20 +229,83 @@ function checkAuthState() {
 // 로그인/회원가입 탭 전환
 function switchAuthTab(mode) {
   const tabLogin = document.getElementById('tabLoginBtn');
+  const tabGithub = document.getElementById('tabGithubBtn');
   const tabSignup = document.getElementById('tabSignupBtn');
   const formLogin = document.getElementById('loginForm');
+  const formGithub = document.getElementById('githubForm');
   const formSignup = document.getElementById('signupForm');
   
+  [tabLogin, tabGithub, tabSignup].forEach(btn => btn && btn.classList.remove('active'));
+  [formLogin, formGithub, formSignup].forEach(form => form && form.classList.remove('active'));
+  
   if (mode === 'login') {
-    tabLogin.classList.add('active');
-    tabSignup.classList.remove('active');
-    formLogin.classList.add('active');
-    formSignup.classList.remove('active');
+    if (tabLogin) tabLogin.classList.add('active');
+    if (formLogin) formLogin.classList.add('active');
+  } else if (mode === 'github') {
+    if (tabGithub) tabGithub.classList.add('active');
+    if (formGithub) formGithub.classList.add('active');
   } else {
-    tabLogin.classList.remove('active');
-    tabSignup.classList.add('active');
-    formLogin.classList.remove('active');
-    formSignup.classList.add('active');
+    if (tabSignup) tabSignup.classList.add('active');
+    if (formSignup) formSignup.classList.add('active');
+  }
+}
+
+// GitHub PAT 로그인 핸들러
+async function handleGithubLogin(e) {
+  e.preventDefault();
+  
+  const tokenInput = document.getElementById('githubToken').value.trim();
+  const teamInput = document.getElementById('githubTeam').value.trim();
+  const errorMsg = document.getElementById('githubError');
+  const submitBtn = document.getElementById('submitGithubBtn');
+  
+  errorMsg.textContent = '';
+  submitBtn.disabled = true;
+  const originalText = submitBtn.innerHTML;
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> GitHub 로그인 중...';
+  
+  try {
+    if (!tokenInput) {
+      throw new Error('GitHub 토큰을 입력해 주세요.');
+    }
+    
+    const res = await fetch('https://api.github.com/user', {
+      headers: {
+        'Authorization': `Bearer ${tokenInput}`,
+        'Accept': 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28'
+      }
+    });
+    
+    if (!res.ok) {
+      throw new Error('유효하지 않은 GitHub 토큰이거나 만료되었습니다.');
+    }
+    
+    const data = await res.json();
+    
+    localStorage.setItem('ax_github_token', tokenInput);
+    
+    const githubUser = {
+      id: data.login,
+      name: data.name || data.login,
+      role: 'student',
+      team: teamInput || 'GitHub 멤버',
+      avatarUrl: data.avatar_url,
+      isGithub: true
+    };
+    
+    localStorage.setItem('ax_user', JSON.stringify(githubUser));
+    
+    state.githubToken = tokenInput;
+    state.user = githubUser;
+    
+    await checkAuthState();
+    
+  } catch (err) {
+    errorMsg.textContent = err.message;
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
   }
 }
 
@@ -328,9 +457,11 @@ async function handleSignup(e) {
 function handleLogout() {
   if (confirm('로그아웃 하시겠습니까?')) {
     localStorage.removeItem('ax_token');
+    localStorage.removeItem('ax_github_token');
     localStorage.removeItem('ax_user');
     
     state.token = null;
+    state.githubToken = null;
     state.user = null;
     state.currentClipId = null;
     state.editMode = false;
@@ -543,8 +674,8 @@ function renderLivePreview(md) {
 
 // 에디터 수정본 서버 저장 API 요청
 async function saveContent() {
-  if (STATIC_MODE) {
-    alert('이 기능은 GitHub Pages 공개판에서 비활성화됩니다.');
+  if (STATIC_MODE && (!state.user.isGithub || !state.githubToken)) {
+    alert('정적 페이지 모드에서는 GitHub 로그인이 되어있고 권한이 있어야 교재를 수정할 수 있습니다.');
     return;
   }
   
@@ -554,34 +685,83 @@ async function saveContent() {
   
   const saveBtn = document.querySelector('.editor-actions .btn-primary');
   saveBtn.disabled = true;
+  const originalText = saveBtn.innerHTML;
   saveBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 저장 중...';
   
   try {
-    const res = await fetch(`${API_BASE}/api/content/${state.currentClipId}/save`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${state.token}`
-      },
-      body: JSON.stringify({ content: state.rawMarkdown })
-    });
-    
-    const data = await res.json();
-    
-    if (!res.ok) {
-      throw new Error(data.error || '콘텐츠 저장 도중 오류가 발생했습니다.');
+    if (STATIC_MODE) {
+      const { owner, repo } = getGithubRepoInfo();
+      const chPart = state.currentClipId.split('-')[0].toUpperCase();
+      const path = `content/${chPart}/${state.currentClipId}.md`;
+      
+      let sha = null;
+      try {
+        const getFileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+          headers: {
+            'Authorization': `Bearer ${state.githubToken}`,
+            'Accept': 'application/vnd.github+json'
+          }
+        });
+        if (getFileRes.ok) {
+          const fileData = await getFileRes.json();
+          sha = fileData.sha;
+        }
+      } catch (err) {
+        console.warn('파일 SHA 조회 실패 (신규 파일일 수 있음):', err);
+      }
+      
+      const base64Content = btoa(unescape(encodeURIComponent(state.rawMarkdown)));
+      
+      const commitRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${state.githubToken}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/vnd.github+json'
+        },
+        body: JSON.stringify({
+          message: `docs: update course content for ${state.currentClipId} via online portal`,
+          content: base64Content,
+          sha: sha || undefined
+        })
+      });
+      
+      if (!commitRes.ok) {
+        const errData = await commitRes.json();
+        throw new Error(errData.message || 'GitHub 저장소에 저장하는 과정에서 오류가 발생했습니다.');
+      }
+      
+      alert('🎉 성공적으로 원격 GitHub 저장소에 저장 완료!\nGitHub Actions 배포가 트리거되었습니다. 약 2~3분 내로 라이브 웹사이트에 자동 반영됩니다.');
+      toggleEditMode();
+    } else {
+      if (IS_STATIC_DEMO) {
+        alert('이 기능은 데모 모드에서 비활성화됩니다.');
+        return;
+      }
+      
+      const res = await fetch(`${API_BASE}/api/content/${state.currentClipId}/save`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${state.token}`
+        },
+        body: JSON.stringify({ content: state.rawMarkdown })
+      });
+      
+      const data = await res.json();
+      
+      if (!res.ok) {
+        throw new Error(data.error || '콘텐츠 저장 도중 오류가 발생했습니다.');
+      }
+      
+      alert('교재 내용이 서버에 안전하게 저장되었습니다!');
+      toggleEditMode();
     }
-    
-    alert('교재 내용이 서버에 안전하게 저장되었습니다!');
-    
-    // 에디터 끄고 뷰어 모드로 자동 전환
-    toggleEditMode();
-    
   } catch (err) {
     alert(err.message);
   } finally {
     saveBtn.disabled = false;
-    saveBtn.innerHTML = '<i class="fa-solid fa-floppy-disk"></i> 저장 및 동기화';
+    saveBtn.innerHTML = originalText;
   }
 }
 
@@ -653,32 +833,86 @@ async function triggerAddClip() {
 // 목차 메타데이터 전체 저장 API 호출
 async function saveChaptersMeta(updatedChapters) {
   try {
-    if (IS_STATIC_DEMO) {
-      alert('데모 환경(GitHub Pages)에서는 챕터/클립 구성이 디스크 파일에 영구적으로 저장되지 않습니다.\n대신 화면 상의 목차 구성에는 가상으로 즉시 반영됩니다.');
+    if (STATIC_MODE) {
+      if (!state.user.isGithub || !state.githubToken) {
+        alert('정적 페이지 모드에서는 GitHub 로그인이 되어있고 권한이 있어야 목차를 수정할 수 있습니다.');
+        return;
+      }
+      
+      const confirmMsg = '목차(사이드바) 구성을 영구적으로 원격 저장소에 적용하시겠습니까?\n저장 즉시 GitHub Actions 배포가 다시 기동됩니다.';
+      if (!confirm(confirmMsg)) return;
+      
+      const { owner, repo } = getGithubRepoInfo();
+      const path = 'data/content_meta.json';
+      
+      let sha = null;
+      try {
+        const getFileRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+          headers: {
+            'Authorization': `Bearer ${state.githubToken}`,
+            'Accept': 'application/vnd.github+json'
+          }
+        });
+        if (getFileRes.ok) {
+          const fileData = await getFileRes.json();
+          sha = fileData.sha;
+        }
+      } catch (err) {
+        console.warn('목차 파일 SHA 조회 실패:', err);
+      }
+      
+      const jsonContent = JSON.stringify(updatedChapters, null, 2);
+      const base64Content = btoa(unescape(encodeURIComponent(jsonContent)));
+      
+      const commitRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${state.githubToken}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/vnd.github+json'
+        },
+        body: JSON.stringify({
+          message: 'docs: update sidebar structure (content_meta.json) via online portal',
+          content: base64Content,
+          sha: sha || undefined
+        })
+      });
+      
+      if (!commitRes.ok) {
+        const errData = await commitRes.json();
+        throw new Error(errData.message || 'GitHub 저장소에 목차를 저장하는 과정에서 오류가 발생했습니다.');
+      }
+      
+      alert('🎉 목차 변경 사항이 원격 GitHub 저장소에 안전하게 커밋되었습니다!\nGitHub Actions 자동 배포가 완료되는 대로 전체 사이트에 적용됩니다.');
+      
       state.chapters = updatedChapters;
       await loadChapters();
-      return;
-    }
+    } else {
+      if (IS_STATIC_DEMO) {
+        alert('데모 환경(GitHub Pages)에서는 챕터/클립 구성이 디스크 파일에 영구적으로 저장되지 않습니다.\n대신 화면 상의 목차 구성에는 가상으로 즉시 반영됩니다.');
+        state.chapters = updatedChapters;
+        await loadChapters();
+        return;
+      }
 
-    const res = await fetch(`${API_BASE}/api/chapters/save`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${state.token}`
-      },
-      body: JSON.stringify({ chapters: updatedChapters })
-    });
-    
-    const data = await res.json();
-    
-    if (!res.ok) {
-      throw new Error(data.error || '목차 메타 데이터를 저장하는 데 실패했습니다.');
+      const res = await fetch(`${API_BASE}/api/chapters/save`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${state.token}`
+        },
+        body: JSON.stringify({ chapters: updatedChapters })
+      });
+      
+      const data = await res.json();
+      
+      if (!res.ok) {
+        throw new Error(data.error || '목차 메타 데이터를 저장하는 데 실패했습니다.');
+      }
+      
+      state.chapters = updatedChapters;
+      await loadChapters();
     }
-    
-    // 상태 동기화 및 렌더링 리로드
-    state.chapters = updatedChapters;
-    await loadChapters();
-    
   } catch (err) {
     alert(err.message);
   }

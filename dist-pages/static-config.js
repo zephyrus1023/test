@@ -16,6 +16,7 @@
 
   window.__AX_STATIC_CONFIG__ = {
     mode: "static",
-    basePath: getDynamicBasePath()
+    basePath: getDynamicBasePath(),
+    repository: ""
   };
 })();

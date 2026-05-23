@@ -5,5 +5,12 @@
     "name": "관리자",
     "team": "AX운영팀",
     "role": "admin"
+  },
+  {
+    "id": "수강생",
+    "password": "$2b$10$WttrFBHq0UVzu9NtmzC6Runr.dFHhwGlcG.Cw.CPPqDbqBxzSbjRe",
+    "name": "수강생",
+    "team": "수강생",
+    "role": "student"
   }
 ]
